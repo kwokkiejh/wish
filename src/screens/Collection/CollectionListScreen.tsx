@@ -1,6 +1,7 @@
 import { SafeAreaView, Text, TextInput, StyleSheet, View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import CollectionCard from "./components/CollectionCard";
+
 const CollectionListScreen = () => {
   return (
     <SafeAreaView style={styles.box}>

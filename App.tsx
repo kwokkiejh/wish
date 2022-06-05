@@ -1,8 +1,8 @@
-import CollectionScreen from "./src/screens/Collection/CollectionScreen";
-import CollectionListScreen from "./src/screens/Collection/CollectionListScreen";
+import "react-native-gesture-handler";
+import RootNavigator from "./src/navigation/RootNavigator";
 
 const App = () => {
-  return <CollectionListScreen />;
+  return <RootNavigator />;
 };
 
 export default App;

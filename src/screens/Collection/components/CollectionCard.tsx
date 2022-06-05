@@ -1,8 +1,21 @@
-import { Image, Text, TextInput, StyleSheet, View } from "react-native";
+import { Image, Text, TouchableOpacity, StyleSheet, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../../../navigation/RootNavigator";
+
+type CollectionCardNavigationProps = StackNavigationProp<
+  RootStackParamList,
+  "CollectionList"
+>;
 
 const CollectionCard = () => {
+  const navigation = useNavigation<CollectionCardNavigationProps>();
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate("Collection")}
+    >
       <View style={styles.images}>
         <Image
           source={{
@@ -30,7 +43,7 @@ const CollectionCard = () => {
       </View>
       <Text style={styles.name}>Vintage Clothes</Text>
       <Text>5 Items</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

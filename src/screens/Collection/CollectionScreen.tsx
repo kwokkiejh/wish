@@ -7,12 +7,25 @@ import {
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../../navigation/RootNavigator";
+
+type CollectionScreenNavigationProps = StackNavigationProp<
+  RootStackParamList,
+  "CollectionList"
+>;
 
 const CollectionScreen = () => {
+  const navigation = useNavigation<CollectionScreenNavigationProps>();
+
   return (
     <SafeAreaView style={styles.box}>
       <View style={styles.navContainer}>
-        <TouchableOpacity style={[styles.backButton]}>
+        <TouchableOpacity
+          style={[styles.backButton]}
+          onPress={() => navigation.navigate("CollectionList")}
+        >
           <MaterialCommunityIcons
             name="keyboard-backspace"
             size={32}
