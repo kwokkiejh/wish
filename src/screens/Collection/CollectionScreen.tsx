@@ -9,11 +9,11 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation/RootNavigator";
+import { CollectionStackParamList } from "../../navigation/CollectionNavigator";
 
 type CollectionScreenNavigationProps = StackNavigationProp<
-  RootStackParamList,
-  "CollectionList"
+  CollectionStackParamList,
+  "Collection"
 >;
 
 const CollectionScreen = () => {

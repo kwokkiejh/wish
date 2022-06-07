@@ -1,21 +1,12 @@
 import { Image, Text, TouchableOpacity, StyleSheet, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../../navigation/RootNavigator";
 
-type CollectionCardNavigationProps = StackNavigationProp<
-  RootStackParamList,
-  "CollectionList"
->;
+type CollectionCardProps = {
+  handlePress: () => void;
+};
 
-const CollectionCard = () => {
-  const navigation = useNavigation<CollectionCardNavigationProps>();
-
+const CollectionCard = ({ handlePress }: CollectionCardProps) => {
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => navigation.navigate("Collection")}
-    >
+    <TouchableOpacity style={styles.container} onPress={handlePress}>
       <View style={styles.images}>
         <Image
           source={{

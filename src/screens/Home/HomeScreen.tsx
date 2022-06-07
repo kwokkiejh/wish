@@ -1,37 +1,23 @@
 import { SafeAreaView, Text, TextInput, StyleSheet, View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import CollectionCard from "./components/CollectionCard";
-import { CollectionStackParamList } from "../../navigation/CollectionNavigator";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { useNavigation } from "@react-navigation/native";
+import ItemCard from "../../components/PinCard";
 
-type CollectionListNavigationProps = StackNavigationProp<
-  CollectionStackParamList,
-  "Collection"
->;
-
-const CollectionListScreen = () => {
-  const navigation = useNavigation<CollectionListNavigationProps>();
-
-  const onPressCollectionCard = () => {
-    navigation.navigate("Collection");
-  };
-
+const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.box}>
       <View style={styles.topContainer}>
-        <Text style={styles.header}>My Collections</Text>
+        <Text style={styles.header}>My Pins</Text>
       </View>
       <View style={styles.searchBar}>
         <MaterialIcons name="search" size={24} color="black" />
         <TextInput
           style={styles.searchBarPlaceholder}
-          placeholder="Search your Collections"
+          placeholder="Search your Pins"
           placeholderTextColor="#404040"
         />
       </View>
       <View>
-        <CollectionCard handlePress={onPressCollectionCard} />
+        <ItemCard />
       </View>
     </SafeAreaView>
   );
@@ -62,4 +48,4 @@ const styles = StyleSheet.create({
   searchBarPlaceholder: { marginLeft: 12 }
 });
 
-export default CollectionListScreen;
+export default HomeScreen;
