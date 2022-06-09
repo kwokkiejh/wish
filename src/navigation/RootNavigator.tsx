@@ -30,7 +30,8 @@ const RootNavigator = () => {
         initialRouteName="HomeTab"
         screenOptions={{
           tabBarShowLabel: false,
-          headerShown: false
+          headerShown: false,
+          unmountOnBlur: true
         }}
       >
         <Tab.Screen name="HomeTab" component={HomeScreen} />

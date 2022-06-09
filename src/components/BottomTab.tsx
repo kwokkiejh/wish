@@ -19,7 +19,9 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.iconButton}
-        onPress={() => navigation.navigate("CollectionTab")}
+        onPress={() =>
+          navigation.navigate("CollectionTab", { screen: "CollectionList" })
+        }
       >
         <MaterialCommunityIcons
           name={
