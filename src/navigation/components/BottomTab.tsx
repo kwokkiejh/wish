@@ -33,7 +33,10 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps) => {
           color="black"
         />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.iconButton}>
+      <TouchableOpacity
+        style={styles.iconButton}
+        onPress={() => navigation.navigate("Create")}
+      >
         <MaterialCommunityIcons name="plus-circle" size={40} color="black" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.iconButton}>
