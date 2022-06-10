@@ -16,84 +16,80 @@ type CreateFullScreenModalStackParamList = StackNavigationProp<
 >;
 
 const CreateBottomDrawer = () => {
-  const { colors } = useTheme();
   const { current } = useCardAnimation();
+  const styles = makeStyles(current);
   const navigation = useNavigation<CreateFullScreenModalStackParamList>();
 
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center"
-      }}
-    >
+    <View style={styles.container}>
       <Pressable
-        style={[
-          StyleSheet.absoluteFill,
-          { backgroundColor: "rgba(0, 0, 0, 0.5)" }
-        ]}
+        style={[StyleSheet.absoluteFill, styles.pressable]}
         onPress={navigation.goBack}
       />
-      <Animated.View
-        style={{
-          padding: 20,
-          width: "100%",
-          maxWidth: 500,
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
-          backgroundColor: colors.card,
-          position: "absolute",
-          bottom: 0,
-          transform: [
-            {
-              scale: current.progress.interpolate({
-                inputRange: [0, 1],
-                outputRange: [0.9, 1],
-                extrapolate: "clamp"
-              })
-            }
-          ]
-        }}
-      >
-        <Text style={{ marginBottom: 12, fontSize: 16 }}>Create</Text>
+      <Animated.View style={styles.animatedView}>
+        <Text style={styles.subtitle}>Create</Text>
         <TouchableOpacity onPress={() => navigation.navigate("CreatePin")}>
-          <Text
-            style={{
-              fontSize: 18,
-              fontWeight: "500",
-              marginBottom: 12
-            }}
-          >
-            Pin
-          </Text>
+          <Text style={styles.actionButtonText}>Pin</Text>
         </TouchableOpacity>
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: "500",
-            marginBottom: 12
-          }}
-        >
-          Collection
-        </Text>
+        <Text style={styles.actionButtonText}>Collection</Text>
         <View>
           <TouchableOpacity
-            style={{
-              backgroundColor: "#F4F4F4",
-              alignSelf: "center",
-              padding: 16,
-              paddingLeft: 20,
-              paddingRight: 20,
-              borderRadius: 28
-            }}
+            style={styles.backButton}
             onPress={navigation.goBack}
           >
-            <Text style={{ fontWeight: "500", fontSize: 14 }}>Close</Text>
+            <Text style={styles.backButtonText}>Close</Text>
           </TouchableOpacity>
         </View>
       </Animated.View>
     </View>
   );
 };
+
+const makeStyles = (current: any) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center"
+    },
+    pressable: {
+      backgroundColor: "rgba(0, 0, 0, 0.5)"
+    },
+    animatedView: {
+      padding: 20,
+      width: "100%",
+      maxWidth: 500,
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      backgroundColor: "#FFFFFF",
+      position: "absolute",
+      bottom: 0,
+      transform: [
+        {
+          scale: current.progress.interpolate({
+            inputRange: [0, 1],
+            outputRange: [0.9, 1],
+            extrapolate: "clamp"
+          })
+        }
+      ]
+    },
+    subtitle: { marginBottom: 12, fontSize: 16 },
+    actionButtonText: {
+      fontSize: 18,
+      fontWeight: "500",
+      marginBottom: 12
+    },
+    backButton: {
+      backgroundColor: "#F4F4F4",
+      alignSelf: "center",
+      padding: 16,
+      paddingLeft: 20,
+      paddingRight: 20,
+      borderRadius: 28
+    },
+    backButtonText: {
+      fontWeight: "500"
+    }
+  });
 export default CreateBottomDrawer;

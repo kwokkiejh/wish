@@ -9,6 +9,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootNavigatorParamList } from "../../navigation/RootNavigator";
+import Screen from "../../components/Screen";
 
 type CreatePinScreenStackParamList = StackNavigationProp<
   RootNavigatorParamList,
@@ -18,7 +19,7 @@ const CreatePinScreen = () => {
   const navigation = useNavigation<CreatePinScreenStackParamList>();
 
   return (
-    <SafeAreaView>
+    <Screen>
       <TouchableOpacity onPress={() => navigation.navigate("Tab")}>
         <MaterialCommunityIcons
           name="close"
@@ -27,7 +28,7 @@ const CreatePinScreen = () => {
           style={{ padding: 10 }}
         />
       </TouchableOpacity>
-    </SafeAreaView>
+    </Screen>
   );
 };
 export default CreatePinScreen;

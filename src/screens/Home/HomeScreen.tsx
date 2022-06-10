@@ -1,10 +1,11 @@
 import { SafeAreaView, Text, TextInput, StyleSheet, View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import ItemCard from "../../components/PinCard";
+import Screen from "../../components/Screen";
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView style={styles.box}>
+    <Screen>
       <View style={styles.topContainer}>
         <Text style={styles.header}>My Pins</Text>
       </View>
@@ -19,7 +20,7 @@ const HomeScreen = () => {
       <View>
         <ItemCard />
       </View>
-    </SafeAreaView>
+    </Screen>
   );
 };
 

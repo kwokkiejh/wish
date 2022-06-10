@@ -4,6 +4,7 @@ import CollectionCard from "./components/CollectionCard";
 import { CollectionStackParamList } from "../../navigation/CollectionNavigator";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation } from "@react-navigation/native";
+import Screen from "../../components/Screen";
 
 type CollectionListNavigationProps = StackNavigationProp<
   CollectionStackParamList,
@@ -18,7 +19,7 @@ const CollectionListScreen = () => {
   };
 
   return (
-    <SafeAreaView style={styles.box}>
+    <Screen>
       <View style={styles.topContainer}>
         <Text style={styles.header}>My Collections</Text>
       </View>
@@ -33,16 +34,11 @@ const CollectionListScreen = () => {
       <View>
         <CollectionCard handlePress={onPressCollectionCard} />
       </View>
-    </SafeAreaView>
+    </Screen>
   );
 };
 
 const styles = StyleSheet.create({
-  box: {
-    margin: 8,
-    minHeight: "100%"
-  },
-
   topContainer: { alignItems: "center", marginTop: 48, marginBottom: 24 },
   backButton: {
     padding: 10

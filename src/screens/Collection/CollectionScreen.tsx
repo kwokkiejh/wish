@@ -10,6 +10,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { CollectionStackParamList } from "../../navigation/CollectionNavigator";
+import Screen from "../../components/Screen";
 
 type CollectionScreenNavigationProps = StackNavigationProp<
   CollectionStackParamList,
@@ -20,7 +21,7 @@ const CollectionScreen = () => {
   const navigation = useNavigation<CollectionScreenNavigationProps>();
 
   return (
-    <SafeAreaView style={styles.box}>
+    <Screen>
       <View style={styles.navContainer}>
         <TouchableOpacity
           style={[styles.backButton]}
@@ -69,14 +70,11 @@ const CollectionScreen = () => {
           <Text style={styles.itemsHeaderText}>5 Items</Text>
         </View>
       </View>
-    </SafeAreaView>
+    </Screen>
   );
 };
 
 const styles = StyleSheet.create({
-  box: {
-    margin: 8
-  },
   topContainer: {
     backgroundColor: "#fff",
     alignItems: "center",
