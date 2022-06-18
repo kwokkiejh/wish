@@ -6,11 +6,13 @@ import TabNavigator from "./TabNavigator";
 import CreateBottomDrawer from "./components/CreateBottomDrawer";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import CreatePinScreen from "../screens/Create/CreatePinScreen";
+import CreateCollectionScreen from "../screens/Create/CreateCollectionScreen";
 
 export type RootNavigatorParamList = {
   Tab: undefined;
   Create: undefined;
   CreatePin: undefined;
+  CreateCollection: undefined;
 };
 
 const Stack = createStackNavigator<RootNavigatorParamList>();
@@ -42,6 +44,10 @@ const RootNavigator = () => {
           }}
         />
         <Stack.Screen name="CreatePin" component={CreatePinScreen} />
+        <Stack.Screen
+          name="CreateCollection"
+          component={CreateCollectionScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

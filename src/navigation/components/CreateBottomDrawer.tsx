@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet
 } from "react-native";
-import { useNavigation, useTheme } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp, useCardAnimation } from "@react-navigation/stack";
 import { RootNavigatorParamList } from "../RootNavigator";
 
@@ -31,7 +31,11 @@ const CreateBottomDrawer = () => {
         <TouchableOpacity onPress={() => navigation.navigate("CreatePin")}>
           <Text style={styles.actionButtonText}>Pin</Text>
         </TouchableOpacity>
-        <Text style={styles.actionButtonText}>Collection</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("CreateCollection")}
+        >
+          <Text style={styles.actionButtonText}>Collection</Text>
+        </TouchableOpacity>
         <View>
           <TouchableOpacity
             style={styles.backButton}

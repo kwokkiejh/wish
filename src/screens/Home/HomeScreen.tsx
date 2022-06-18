@@ -1,7 +1,7 @@
 import { SafeAreaView, Text, TextInput, StyleSheet, View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import ItemCard from "../../components/PinCard";
-import Screen from "../../components/Screen";
+import ItemCard from "../../components/PinCard/PinCard";
+import Screen from "../../components/Screen/Screen";
 
 const HomeScreen = () => {
   return (

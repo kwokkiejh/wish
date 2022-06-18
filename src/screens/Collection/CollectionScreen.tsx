@@ -10,7 +10,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { CollectionStackParamList } from "../../navigation/CollectionNavigator";
-import Screen from "../../components/Screen";
+import Screen from "../../components/Screen/Screen";
 
 type CollectionScreenNavigationProps = StackNavigationProp<
   CollectionStackParamList,

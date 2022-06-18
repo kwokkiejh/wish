@@ -1,15 +1,10 @@
-import {
-  SafeAreaView,
-  TouchableOpacity,
-  TextInput,
-  StyleSheet,
-  View
-} from "react-native";
+import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootNavigatorParamList } from "../../navigation/RootNavigator";
-import Screen from "../../components/Screen";
+import Screen from "../../components/Screen/Screen";
+import CreateHeader from "./components/CreateHeader";
 
 type CreatePinScreenStackParamList = StackNavigationProp<
   RootNavigatorParamList,
@@ -20,15 +15,15 @@ const CreatePinScreen = () => {
 
   return (
     <Screen>
-      <TouchableOpacity onPress={() => navigation.navigate("Tab")}>
-        <MaterialCommunityIcons
-          name="close"
-          size={32}
-          color="black"
-          style={{ padding: 10 }}
-        />
-      </TouchableOpacity>
+      <CreateHeader
+        handleClosePress={() => navigation.navigate("Tab")}
+        handleCompleteStepPress={() => navigation.navigate("Tab")}
+        title={`Create Pin`}
+      />
     </Screen>
   );
 };
+
+const styles = StyleSheet.create({});
+
 export default CreatePinScreen;

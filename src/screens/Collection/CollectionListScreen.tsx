@@ -4,7 +4,7 @@ import CollectionCard from "./components/CollectionCard";
 import { CollectionStackParamList } from "../../navigation/CollectionNavigator";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation } from "@react-navigation/native";
-import Screen from "../../components/Screen";
+import Screen from "../../components/Screen/Screen";
 
 type CollectionListNavigationProps = StackNavigationProp<
   CollectionStackParamList,
