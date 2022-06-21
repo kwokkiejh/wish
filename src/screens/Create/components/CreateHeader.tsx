@@ -5,12 +5,14 @@ type CreateHeaderProps = {
   handleClosePress: () => void;
   title: string;
   handleCompleteStepPress: () => void;
+  isStepComplete?: boolean;
   finalStep?: boolean;
 };
 const CreateHeader = ({
   handleClosePress,
   title,
   handleCompleteStepPress,
+  isStepComplete = false,
   finalStep = true
 }: CreateHeaderProps) => {
   return (
@@ -20,10 +22,19 @@ const CreateHeader = ({
       </TouchableOpacity>
       <Text style={styles.title}>{title}</Text>
       <TouchableOpacity
-        style={styles.nextButton}
+        style={[
+          styles.nextButton,
+          isStepComplete ? styles.enableButtonColor : styles.disableButtonColor
+        ]}
         onPress={handleCompleteStepPress}
       >
-        <Text style={styles.buttonText}>{finalStep ? `Done` : `Next`}</Text>
+        <Text
+          style={
+            isStepComplete ? styles.enableButtonText : styles.disableButtonText
+          }
+        >
+          {finalStep ? `Done` : `Next`}
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -37,12 +48,21 @@ const styles = StyleSheet.create({
   },
   closeButton: { padding: 10 },
   title: { fontWeight: "bold", fontSize: 18 },
-  buttonText: { fontWeight: "500", color: "#C6C6C6" },
   nextButton: {
-    backgroundColor: "#F4F4F4",
     padding: 12,
     borderRadius: 28
-  }
+  },
+  enableButtonColor: {
+    backgroundColor: "#FFBCC2"
+  },
+  enableButtonText: {
+    fontWeight: "500",
+    color: "#000000"
+  },
+  disableButtonColor: {
+    backgroundColor: "#F4F4F4"
+  },
+  disableButtonText: { fontWeight: "500", color: "#C6C6C6" }
 });
 
 export default CreateHeader;
