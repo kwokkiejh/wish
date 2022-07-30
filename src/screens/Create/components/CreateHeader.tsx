@@ -17,40 +17,51 @@ const CreateHeader = ({
 }: CreateHeaderProps) => {
   return (
     <View style={styles.headerContainer}>
-      <TouchableOpacity style={styles.closeButton} onPress={handleClosePress}>
-        <MaterialCommunityIcons name="close" size={32} color="black" />
-      </TouchableOpacity>
-      <Text style={styles.title}>{title}</Text>
-      <TouchableOpacity
-        style={[
-          styles.nextButton,
-          isStepComplete ? styles.enableButtonColor : styles.disableButtonColor
-        ]}
-        onPress={handleCompleteStepPress}
-      >
-        <Text
-          style={
-            isStepComplete ? styles.enableButtonText : styles.disableButtonText
-          }
+      <View style={{ flex: 1 }}>
+        <TouchableOpacity style={styles.closeButton} onPress={handleClosePress}>
+          <MaterialCommunityIcons name="close" size={32} color="black" />
+        </TouchableOpacity>
+      </View>
+      <View style={{ flex: 1 }}>
+        <Text style={styles.title}>{title}</Text>
+      </View>
+      <View style={{ flex: 1 }}>
+        <TouchableOpacity
+          style={[
+            styles.nextButton,
+            isStepComplete
+              ? styles.enableButtonColor
+              : styles.disableButtonColor
+          ]}
+          onPress={handleCompleteStepPress}
         >
-          {finalStep ? `Done` : `Next`}
-        </Text>
-      </TouchableOpacity>
+          <Text
+            style={
+              isStepComplete
+                ? styles.enableButtonText
+                : styles.disableButtonText
+            }
+          >
+            {finalStep ? `Done` : `Next`}
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   headerContainer: {
-    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "center",
+    flexDirection: "row"
   },
   closeButton: { padding: 10 },
-  title: { fontWeight: "bold", fontSize: 18 },
+  title: { fontWeight: "bold", fontSize: 18, textAlign: "center" },
   nextButton: {
-    padding: 12,
-    borderRadius: 28
+    padding: 10,
+    borderRadius: 28,
+    alignSelf: "flex-end"
   },
   enableButtonColor: {
     backgroundColor: "#FFBCC2"
